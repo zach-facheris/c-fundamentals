@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(void) {
-    int sum = 0;
+    long long sum = 0;
     int n;
     if (scanf("%d", &n) != 1) return 0;
 
@@ -34,7 +34,7 @@ int main(void) {
 
     /* TODO: print the sum of all values on its own line (it can exceed an int). */
 
-    printf("\n%d", sum);
+    printf("\n%lld", sum);
 
     /* TODO: give the block back. */
     free(nums);

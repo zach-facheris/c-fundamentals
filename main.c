@@ -8,9 +8,10 @@ int main(void)
 
 	scanf("%d %d", &width, &height);
 
+	long long area = width * height;
 	double ratio = (double)width / height;
 
-	printf("%d\n", width * height);
+	printf("%lld\n", area);
 	printf("%.2f\n", ratio);
 
 	return 0;

@@ -1,22 +1,15 @@
 #include <stdio.h>
-#include <limits.h>
-#include <sys/param.h>
+#include <string.h>
 
-int main(void)
-{
-	int nums[5];
-	for (int i = 0; i < 5; i++)
-		scanf("%d", &nums[i]);
+int main(void) {
+    char buf[100] = "";
+    fgets(buf, sizeof buf, stdin);
 
-	int best = INT_MIN; /* TODO: start from a real element of nums, not from 0 */
+    /* TODO: fgets kept the newline it stopped on, if there was one.
+       Remove it so strlen counts only the characters on the line. */
 
-	/* TODO: loop over the remaining elements; whenever one is bigger
-	   than best, it becomes the new best */
-	for(size_t i = 0; i < 5; i++)
-	{
-		best = MAX(best, nums[i]);
-	}
+	buf[strcspn(buf, "\n")] = '\0';
 
-	printf("%d\n", best);
-	return 0;
+    printf("%d\n", (int)strlen(buf));
+    return 0;
 }

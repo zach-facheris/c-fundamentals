@@ -1,18 +1,21 @@
 #include <stdio.h>
-#include <string.h>
+#include <sys/param.h>
 
 int main(void)
 {
-	int width = 0;
-	int height = 0;
+	int nums[5];
+	for (int i = 0; i < 5; i++)
+		scanf("%d", &nums[i]);
 
-	scanf("%d %d", &width, &height);
+	int best = 0; /* TODO: start from a real element of nums, not from 0 */
 
-	long long area = (long long)width * (long long)height;
-	double ratio = (double)width / height;
+	/* TODO: loop over the remaining elements; whenever one is bigger
+	   than best, it becomes the new best */
+	for(size_t i = 0; i < 5; i++)
+	{
+		best = MAX(best, nums[i]);
+	}
 
-	printf("%lld\n", area);
-	printf("%.2f\n", ratio);
-
+	printf("%d\n", best);
 	return 0;
 }

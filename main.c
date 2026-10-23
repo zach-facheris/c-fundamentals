@@ -1,34 +1,42 @@
 #include <stdio.h>
-
-typedef struct {
-    int x, y;
-} Point;
-
-/* TODO: return the squared distance between a and b. */
-int dist2(Point a, Point b) {
-    int horizontal_diff = a.x - b.x;
-    int squared_horizontal_diff = horizontal_diff * horizontal_diff;
-
-    int vertical_diff = a.y - b.y;
-    int squared_vertical_diff = vertical_diff * vertical_diff;
-
-    return squared_horizontal_diff + squared_vertical_diff;
-}
+#include <stdlib.h>
 
 int main(void) {
-    int x1, y1, x2, y2;
-    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+    int sum = 0;
+    int n;
+    if (scanf("%d", &n) != 1) return 0;
 
-    Point a = {0, 0};
-    Point b = {0, 0};
-    /* TODO: build a from (x1, y1) and b from (x2, y2). */
+    /* TODO: replace NULL with a malloc call that reserves room for n ints. */
+    int *nums = malloc(n * sizeof(int));
 
-    a.x = x1;
-    a.y = y1;
+    if (nums == NULL) {
+        /* TODO: allocation failed: print a message to stderr and return 1. */
+        perror("malloc");
+        return 1;
+    }
 
-    b.x = x2;
-    b.y = y2;
+    for (int i = 0; i < n; i++) scanf("%d", &nums[i]);
 
-    printf("%d\n", dist2(a, b));
+    /* TODO: print the values from last to first on one line, single spaces between them. */
+    for(int i = n - 1; i >= 0; i--)
+    {
+        sum += nums[i];
+
+        if(i == 0)
+        {
+            printf("%d", nums[i]);
+        }
+        else
+        {
+            printf("%d ", nums[i]);
+        }
+    }
+
+    /* TODO: print the sum of all values on its own line (it can exceed an int). */
+
+    printf("\n%d", sum);
+
+    /* TODO: give the block back. */
+    free(nums);
     return 0;
 }

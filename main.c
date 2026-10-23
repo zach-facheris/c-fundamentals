@@ -4,28 +4,17 @@ int main(void) {
     int n;
     scanf("%d", &n);
 
-    /* TODO: print exactly one line:
-         multiple of 3 and 5  -> FizzBuzz
-         multiple of 3 only   -> Fizz
-         multiple of 5 only   -> Buzz
-         anything else        -> the number itself */
+	size_t sum = 0;
 
-	if(n % 3 == 0 && n % 5 == 0)
+    /* TODO: add up the odd numbers 1, 3, 5, ... that are <= n,
+       then print the total on one line. */
+
+	for(size_t i = 1; i <= n; i+=2)
 	{
-		printf("FizzBuzz\n");
+		sum += i;
 	}
-	else if(n % 3 == 0)
-	{
-		printf("Fizz\n");
-	}
-	else if(n % 5 == 0)
-	{
-		printf("Buzz\n");
-	}
-	else
-	{
-		printf("%d\n", n);
-	}
+
+	printf("%zu\n", sum);
 
     return 0;
 }

@@ -1,15 +1,31 @@
 #include <stdio.h>
-#include <string.h>
 
 int main(void) {
-    char buf[100] = "";
-    fgets(buf, sizeof buf, stdin);
+    int n;
+    scanf("%d", &n);
 
-    /* TODO: fgets kept the newline it stopped on, if there was one.
-       Remove it so strlen counts only the characters on the line. */
+    /* TODO: print exactly one line:
+         multiple of 3 and 5  -> FizzBuzz
+         multiple of 3 only   -> Fizz
+         multiple of 5 only   -> Buzz
+         anything else        -> the number itself */
 
-	buf[strcspn(buf, "\n")] = '\0';
+	if(n % 3 == 0 && n % 5 == 0)
+	{
+		printf("FizzBuzz\n");
+	}
+	else if(n % 3 == 0)
+	{
+		printf("Fizz\n");
+	}
+	else if(n % 5 == 0)
+	{
+		printf("Buzz\n");
+	}
+	else
+	{
+		printf("%d\n", n);
+	}
 
-    printf("%d\n", (int)strlen(buf));
     return 0;
 }

@@ -3,13 +3,15 @@
 
 int main(void)
 {
-	double n1 = 0.0;
-	double n2 = 0.0;
+	int width = 0;
+	int height = 0;
 
-	scanf("%lf %lf", &n1, &n2);
+	scanf("%d %d", &width, &height);
 
-	printf("%f\n", n1 + n2);
-	printf("%d\n", (int)(n1 + n2));
+	double ratio = (double)width / height;
+
+	printf("%d\n", width * height);
+	printf("%.2f\n", ratio);
 
 	return 0;
 }

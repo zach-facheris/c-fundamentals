@@ -1,21 +1,18 @@
 #include <stdio.h>
-#include <sys/param.h>
 
-/* Return value limited to the range lo..hi (lo <= hi is guaranteed). */
-int clamp(int value, int lo, int hi) {
-    /* TODO: return lo, hi, or value itself, whichever applies. */
-	
-    return MAX(lo, MIN(value, hi));
+void swap(int* a, int* b) {
+    // TODO: exchange the two ints that a and b point to.
+    // a and b are addresses; change the values stored there.
+	int tmp = *a;
+
+	*a = *b;
+	*b = tmp;
 }
 
 int main(void) {
-    int lo, hi, n;
-    scanf("%d %d", &lo, &hi);
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
-        int x;
-        scanf("%d", &x);
-        printf("%d\n", clamp(x, lo, hi));
-    }
+    int a, b;
+    scanf("%d %d", &a, &b);
+    swap(&a, &b);
+    printf("%d %d\n", a, b);
     return 0;
 }
